@@ -30,6 +30,8 @@ public class Parada {
     @JoinColumn(name = "ponto_id")
     private Ponto ponto;
 
+    private Integer ordem;
+
     public Long getId() {
         return id;
     }
@@ -52,6 +54,14 @@ public class Parada {
 
     public void setPonto(Ponto ponto) {
         this.ponto = ponto;
+    }
+
+    public Integer getOrdem() {
+        return ordem;
+    }
+
+    public void setOrdem(Integer ordem) {
+        this.ordem = ordem;
     }
 
 }
