@@ -1,7 +1,7 @@
-package com.hackaton.onibusUFPEL.silmulator;
+package com.hackaton.onibusUFPEL.repository;
 
-import com.hackaton.onibusUFPEL.model.Onibus;
-import com.hackaton.onibusUFPEL.model.RelatorioParada;
+import com.hackathon.onibusUFPEL.model.Onibus;
+import com.hackathon.onibusUFPEL.model.RelatorioParada;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

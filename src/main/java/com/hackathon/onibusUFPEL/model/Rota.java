@@ -1,33 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.hackaton.onibusUFPEL.model;
+package com.hackathon.onibusUFPEL.model;
 
-import javax.persistence.Embedded;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
  *
  * @author aluno
  */
-
 @Entity
-@Table(name = "ponto")
-public class Ponto {
-    
+@Table(name = "rota")
+public class Rota {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private String nome;
-    
-    @Embedded
-    private Localizacao localizacao;
+
+    @OneToMany(mappedBy = "rota")
+    private List<Parada> paradas;
 
     public Long getId() {
         return id;
@@ -45,14 +42,12 @@ public class Ponto {
         this.nome = nome;
     }
 
-    public Localizacao getLocalizacao() {
-        return localizacao;
+    public List<Parada> getParadas() {
+        return paradas;
     }
 
-    public void setLocalizacao(Localizacao localizacao) {
-        this.localizacao = localizacao;
+    public void setParadas(List<Parada> paradas) {
+        this.paradas = paradas;
     }
-    
-    
-    
+
 }

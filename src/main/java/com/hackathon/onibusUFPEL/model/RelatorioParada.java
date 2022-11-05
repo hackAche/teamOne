@@ -1,4 +1,4 @@
-package com.hackaton.onibusUFPEL.model;
+package com.hackathon.onibusUFPEL.model;
 
 import java.time.LocalDate;
 import javax.persistence.CascadeType;
