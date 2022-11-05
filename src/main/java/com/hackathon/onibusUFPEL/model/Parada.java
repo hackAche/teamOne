@@ -1,4 +1,4 @@
-package com.hackaton.onibusUFPEL.model;
+package com.hackathon.onibusUFPEL.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
