@@ -8,8 +8,6 @@ public class OnibusUfpelApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(OnibusUfpelApplication.class, args);
-                
-                //teste
 	}
 
 }
