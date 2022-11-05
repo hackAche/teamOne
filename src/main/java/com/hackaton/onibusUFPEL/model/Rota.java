@@ -1,6 +1,7 @@
 package com.hackaton.onibusUFPEL.model;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,9 @@ public class Rota {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
+    private String nome;
+
+    @OneToMany(mappedBy = "rota")
     private List<Parada> paradas;
 
     public Long getId() {
@@ -29,6 +32,22 @@ public class Rota {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public List<Parada> getParadas() {
+        return paradas;
+    }
+
+    public void setParadas(List<Parada> paradas) {
+        this.paradas = paradas;
     }
 
 }

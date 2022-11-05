@@ -1,10 +1,13 @@
 package com.hackaton.onibusUFPEL.model;
 
 import java.time.LocalDate;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -20,13 +23,15 @@ public class RelatorioParada {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER,  cascade=CascadeType.ALL)
+    @JoinColumn(name="parada_id")
     private Parada parada;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER,  cascade=CascadeType.ALL)
+    @JoinColumn(name="onibus_id")
     private Onibus onibus;
 
-    private LocalDate horario;
+    private LocalDate dataHorario;
 
     private Integer vagasUtilizadas;
 
@@ -59,11 +64,11 @@ public class RelatorioParada {
     }
 
     public LocalDate getHorario() {
-        return horario;
+        return dataHorario;
     }
 
     public void setHorario(LocalDate horario) {
-        this.horario = horario;
+        this.dataHorario = horario;
     }
 
     public Integer getVagasUtilizadas() {
