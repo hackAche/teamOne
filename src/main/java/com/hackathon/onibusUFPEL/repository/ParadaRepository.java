@@ -1,4 +1,4 @@
-package com.hackaton.onibusUFPEL.repository;
+package com.hackathon.onibusUFPEL.repository;
 
 import com.hackathon.onibusUFPEL.model.Parada;
 import com.hackathon.onibusUFPEL.model.Ponto;
