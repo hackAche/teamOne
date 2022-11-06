@@ -71,7 +71,7 @@ public class OnibusResource {
             Onibus onibus = optionalOnibus.get();
             onibus.setLocalizacao(localizacao);
             Optional<Parada> optionalProximaParada = getProximaParadaLocalizacao(localizacao, onibus);
-            optionalProximaParada.ifPresent(parada -> onibus.setParadaAtual(parada));
+            optionalProximaParada.ifPresent(parada -> onibus.setProximaParada(parada));
             onibusRepository.save(onibus);
             return ResponseEntity.noContent().build();
         }
@@ -100,7 +100,10 @@ public class OnibusResource {
         Optional<Parada> optionalParada = paradaRepository.findById(relatorioParadaDTO.getParadaId());
         Optional<Onibus> optionalOnibus = onibusRepository.findById(relatorioParadaDTO.getOnibusId());
         if (optionalParada.isPresent() && optionalOnibus.isPresent()) {
-            RelatorioParada relatorioParada = relatorioParadaDTO.transformaParaRelatorioParada(optionalParada.get(), optionalOnibus.get());
+            Onibus onibus = optionalOnibus.get();
+            RelatorioParada relatorioParada = relatorioParadaDTO
+                    .transformaParaRelatorioParada(optionalParada.get(), onibus);
+            onibus.setVagasUtilizadas(relatorioParada.getVagasUtilizadas());
             relatorioRepository.save(relatorioParada);
         }
     }
