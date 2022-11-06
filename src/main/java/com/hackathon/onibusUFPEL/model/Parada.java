@@ -1,5 +1,7 @@
 package com.hackathon.onibusUFPEL.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,7 +25,7 @@ public class Parada {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "rota_id", nullable = false)
+    @JsonBackReference
     private Rota rota;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

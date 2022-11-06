@@ -5,6 +5,7 @@
 package com.hackathon.onibusUFPEL.model;
 
 import javax.persistence.Embeddable;
+import java.math.BigDecimal;
 
 /**
  *
@@ -13,25 +14,25 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Localizacao {
 
-    private Long x;
+    private BigDecimal x;
 
-    private Long y;
+    private BigDecimal y;
 
     private Long precisao;
 
-    public Long getX() {
+    public BigDecimal getX() {
         return x;
     }
 
-    public void setX(Long x) {
+    public void setX(BigDecimal x) {
         this.x = x;
     }
 
-    public Long getY() {
+    public BigDecimal getY() {
         return y;
     }
 
-    public void setY(Long y) {
+    public void setY(BigDecimal y) {
         this.y = y;
     }
 

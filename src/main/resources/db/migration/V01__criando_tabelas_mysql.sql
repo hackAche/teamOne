@@ -35,8 +35,8 @@ CREATE TABLE onibus (
     precisao FLOAT,
     ativo BOOLEAN, 
     acessibilidade BOOLEAN,
-    vagasTotais INT,
-    vagasUtilizadas INT,
+    vagas_totais INT,
+    vagas_utilizadas INT,
     rota_id BIGINT(20),
     FOREIGN KEY (rota_id)
         REFERENCES rota(id)
@@ -46,10 +46,10 @@ CREATE TABLE relatorioparada (
     id BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
     parada_id BIGINT(20),
     onibus_id BIGINT(20),
-    dataHorario DATETIME,
-    vagasUtilizadas INT,
-    qtdSairam INT,
-    qtdEntraram INT,
+    data_horario DATETIME,
+    vagas_utilizadas INT,
+    qtd_sairam INT,
+    qtd_entraram INT,
     FOREIGN KEY (parada_id)
         REFERENCES parada(id),
     FOREIGN KEY (onibus_id)

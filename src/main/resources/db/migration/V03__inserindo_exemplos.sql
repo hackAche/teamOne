@@ -42,7 +42,7 @@ VALUES (5, 1, 5);
 INSERT INTO parada (ponto_id, rota_id, ordem)
 VALUES (6, 1, 6);
 
-INSERT INTO onibus (x, y, ativo, acessibilidade, vagasTotais, vagasUtilizadas, rota_id )
+INSERT INTO onibus (x, y, ativo, acessibilidade, vagas_totais, vagas_utilizadas, rota_id )
 VALUES (-31.780187, -52.323844, true, true, 80, 0, 1 );
 
 
