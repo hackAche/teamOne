@@ -68,7 +68,7 @@ public class CommandShell {
                 BigDecimal.valueOf(-52.343319))
         );
         onibus = client.getOnibus(1l);
-        Thread.sleep(1000);
+        Thread.sleep(7000);
 
         //CEU
         criaRelatorio(onibus, 2l, 10, 15);
@@ -77,7 +77,7 @@ public class CommandShell {
                 BigDecimal.valueOf(-52.348393))
         );
         onibus = client.getOnibus(1l);
-        Thread.sleep(3000);
+        Thread.sleep(7000);
 
         //LANEIRA
         criaRelatorio(onibus, 3l, 15, 5);
@@ -86,7 +86,7 @@ public class CommandShell {
                 BigDecimal.valueOf(-52.358084))
         );
         onibus = client.getOnibus(1l);
-        Thread.sleep(5000l);
+        Thread.sleep(7000);
 
         //FAMED
         criaRelatorio(onibus, 4l, 3, 0);
@@ -95,7 +95,7 @@ public class CommandShell {
                 BigDecimal.valueOf(-52.362177))
         );
         onibus = client.getOnibus(1l);
-        Thread.sleep(3000l);
+        Thread.sleep(7000);
 
         //ROTULA
         criaRelatorio(onibus, 5l, 2, 0);
@@ -104,7 +104,7 @@ public class CommandShell {
                 BigDecimal.valueOf(-52.418920))
         );
         onibus = client.getOnibus(1l);
-        Thread.sleep(8000l);
+        Thread.sleep(7000);
 
         //CAMPUS CAPÃO
         criaRelatorio(onibus, 6l, 0, onibus.getVagasUtilizadas());
