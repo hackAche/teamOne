@@ -30,8 +30,8 @@ CREATE TABLE parada (
 
 CREATE TABLE onibus (
     id BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
-    x FLOAT,
-    y FLOAT,
+    x DOUBLE,
+    y DOUBLE,
     precisao FLOAT,
     ativo BOOLEAN, 
     acessibilidade BOOLEAN,
