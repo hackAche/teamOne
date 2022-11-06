@@ -28,6 +28,10 @@ public class Onibus {
     @ManyToOne(fetch = FetchType.EAGER,  cascade=CascadeType.ALL)
     @JoinColumn(name="rota_id")
     private Rota rota;
+    
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "parada_atual_id")
+    private Parada paradaAtual;
 
     public Long getId() {
         return id;
@@ -84,6 +88,12 @@ public class Onibus {
     public void setRota(Rota rota) {
         this.rota = rota;
     }
-    
-    
+
+    public Parada getParadaAtual() {
+        return paradaAtual;
+    }
+
+    public void setParadaAtual(Parada paradaAtual) {
+        this.paradaAtual = paradaAtual;
+    }
 }
