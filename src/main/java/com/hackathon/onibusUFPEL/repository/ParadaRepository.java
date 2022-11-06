@@ -2,24 +2,18 @@ package com.hackathon.onibusUFPEL.repository;
 
 import com.hackathon.onibusUFPEL.model.Parada;
 import com.hackathon.onibusUFPEL.model.Ponto;
-import java.util.List;
+import com.hackathon.onibusUFPEL.model.Rota;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+import java.util.Optional;
+
 /**
- *
  * @author Mauricio
  */
 public interface ParadaRepository extends JpaRepository<Parada, Long> {
-
-    /**
-     * Retorna uma lista, não ordenada, de todas as paradas
-     *
-     * @return List of Parada
-     */
-    @Query("SELECT p FROM Parada p")
-    List<Parada> findAllParadas();
 
     /**
      * Retorna uma lista, não ordenada, de todas as paradas com base no
@@ -28,17 +22,11 @@ public interface ParadaRepository extends JpaRepository<Parada, Long> {
      * @param ponto
      * @return List of Parada
      */
-    @Query("SELECT p FROM Parada p WHERE p.ponto =: ponto")
-    List<Parada> findParadaByPontoParam(
+    @Query("SELECT p FROM Parada p WHERE p.ponto = :ponto")
+    Optional<List<Parada>> findParadaByPontoParam(
             @Param("ponto") Ponto ponto);
-
-    /**
-     * Retorna um único elemento da Entity Parada com base no parâmetro id
-     *
-     * @param id
-     * @return Parada
-     */
-    @Query("SELECT p FROM Parada p WHERE p.id = :id")
-    Parada findParadaByIdParam(
-            @Param("id") Long id);
+    
+    @Query("SELECT p FROM Parada p WHERE p.rota = :rota and p.ordem = :ordem")
+    Optional<Parada> findParadaByOrdem(@Param("rota") Rota rota, 
+            @Param("ordem") Integer ordem);
 }

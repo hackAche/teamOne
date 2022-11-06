@@ -6,8 +6,8 @@
 CREATE TABLE ponto (
     id BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
-    x FLOAT,
-    y FLOAT,
+    x DOUBLE,
+    y DOUBLE,
     precisao FLOAT
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
@@ -34,9 +34,9 @@ CREATE TABLE onibus (
     y FLOAT,
     precisao FLOAT,
     ativo BOOLEAN, 
-    accesibilidade BOOLEAN, 
-    vagasTotais INT,
-    vagasUtilizadas INT,
+    acessibilidade BOOLEAN,
+    vagas_totais INT,
+    vagas_utilizadas INT,
     rota_id BIGINT(20),
     FOREIGN KEY (rota_id)
         REFERENCES rota(id)
@@ -46,10 +46,10 @@ CREATE TABLE relatorioparada (
     id BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
     parada_id BIGINT(20),
     onibus_id BIGINT(20),
-    dataHorario DATETIME,
-    vagasUtilizadas INT,
-    qtdSairam INT,
-    qtdEntraram INT,
+    data_horario DATETIME,
+    vagas_utilizadas INT,
+    qtd_sairam INT,
+    qtd_entraram INT,
     FOREIGN KEY (parada_id)
         REFERENCES parada(id),
     FOREIGN KEY (onibus_id)

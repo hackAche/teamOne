@@ -1,15 +1,6 @@
 package com.hackathon.onibusUFPEL.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -29,7 +20,7 @@ public class Onibus {
     private Boolean acessibilidade;
     
     private Boolean ativo;
-    
+
     private Integer vagasTotais;
     
     private Integer vagasUtilizadas;
@@ -37,6 +28,10 @@ public class Onibus {
     @ManyToOne(fetch = FetchType.EAGER,  cascade=CascadeType.ALL)
     @JoinColumn(name="rota_id")
     private Rota rota;
+    
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "parada_atual_id")
+    private Parada paradaAtual;
 
     public Long getId() {
         return id;
@@ -93,6 +88,17 @@ public class Onibus {
     public void setRota(Rota rota) {
         this.rota = rota;
     }
-    
-    
+
+    public Parada getParadaAtual() {
+        return paradaAtual;
+    }
+
+    public void setParadaAtual(Parada paradaAtual) {
+        this.paradaAtual = paradaAtual;
+    }
+
+    @Override
+    public String toString() {
+        return "Onibus{" + "id=" + id + ", localizacao=" + localizacao + ", acessibilidade=" + acessibilidade + ", ativo=" + ativo + ", vagasTotais=" + vagasTotais + ", vagasUtilizadas=" + vagasUtilizadas + ", rota=" + rota + ", paradaAtual=" + paradaAtual + '}';
+    }
 }

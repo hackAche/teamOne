@@ -1,6 +1,6 @@
 package com.hackathon.onibusUFPEL.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,13 +31,25 @@ public class RelatorioParada {
     @JoinColumn(name="onibus_id")
     private Onibus onibus;
 
-    private LocalDate dataHorario;
+    private LocalDateTime dataHorario;
 
     private Integer vagasUtilizadas;
 
     private Integer qtdSairam;
 
     private Integer qtdEntraram;
+
+    public RelatorioParada() {
+    }
+
+    public RelatorioParada(Parada parada, Onibus onibus, LocalDateTime dataHorario, Integer vagasUtilizadas, Integer qtdSairam, Integer qtdEntraram) {
+        this.parada = parada;
+        this.onibus = onibus;
+        this.dataHorario = dataHorario;
+        this.vagasUtilizadas = vagasUtilizadas;
+        this.qtdSairam = qtdSairam;
+        this.qtdEntraram = qtdEntraram;
+    }
 
     public Long getId() {
         return id;
@@ -63,11 +75,11 @@ public class RelatorioParada {
         this.onibus = onibus;
     }
 
-    public LocalDate getHorario() {
+    public LocalDateTime getHorario() {
         return dataHorario;
     }
 
-    public void setHorario(LocalDate horario) {
+    public void setHorario(LocalDateTime horario) {
         this.dataHorario = horario;
     }
 
