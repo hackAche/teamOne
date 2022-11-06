@@ -27,7 +27,6 @@ public class CommandShell {
 
     @ShellMethod
     public void executar() {
-
     }
 
     @ShellMethod
@@ -55,6 +54,75 @@ public class CommandShell {
         rel.setVagasUtilizadas(30);
         client.criaRelatorioOnibus(1l, rel);
         return "Relatório criado";
+    }
+
+    @ShellMethod
+    public String execute() throws InterruptedException {
+        Onibus onibus = client.getOnibus(1l);
+        client.ativarOnibus(onibus.getId());
+
+        //PARADA XV
+        criaRelatorio(onibus, 1l, 42, 0);
+        atualizaLocalizacaoOnibus(onibus, new Localizacao(
+                BigDecimal.valueOf(-31.773356),
+                BigDecimal.valueOf(-52.343319))
+        );
+        Thread.sleep(1000);
+
+        //CEU
+        criaRelatorio(onibus, 2l, 10, 15);
+                atualizaLocalizacaoOnibus(onibus, new Localizacao(
+                BigDecimal.valueOf(-31.772851),
+                BigDecimal.valueOf(-52.348393))
+        );
+        Thread.sleep(3000);
+
+        //LANEIRA
+        criaRelatorio(onibus, 3l, 15, 5);
+                atualizaLocalizacaoOnibus(onibus, new Localizacao(
+                BigDecimal.valueOf(-31.762406),
+                BigDecimal.valueOf(-52.358084))
+        );
+        Thread.sleep(5000l);
+
+        //FAMED
+        criaRelatorio(onibus, 4l, 3, 0);
+                atualizaLocalizacaoOnibus(onibus, new Localizacao(
+                BigDecimal.valueOf(31.760198),
+                BigDecimal.valueOf(-52.362177))
+        );
+        Thread.sleep(3000l);
+
+        //ROTULA
+        criaRelatorio(onibus, 5l, 2, 0);
+                atualizaLocalizacaoOnibus(onibus, new Localizacao(
+                BigDecimal.valueOf(-31.762734),
+                BigDecimal.valueOf(-52.418920))
+        );
+        Thread.sleep(8000l);
+
+        //CAMPUS CAPÃO
+        criaRelatorio(onibus, 6l, 0, onibus.getVagasUtilizadas());
+                atualizaLocalizacaoOnibus(onibus, new Localizacao(
+                BigDecimal.valueOf(-31.797449),
+                BigDecimal.valueOf(-52.407675))
+        );
+        return "Finalizado";
+    }
+
+    public void atualizaLocalizacaoOnibus(Onibus onibus, Localizacao localizacao) {
+        client.atualizaLocalizacaoOnibus(onibus.getId(), localizacao);
+    }
+
+    public void criaRelatorio(Onibus onibus, Long paradaId, int entrou, int saiu) {
+        RelatorioParadaDTO rpDT = new RelatorioParadaDTO();
+        rpDT.setOnibusId(onibus.getId());
+        rpDT.setParadaId(paradaId);
+        rpDT.setDataHorario(LocalDateTime.now());
+        rpDT.setQtdEntraram(entrou);
+        rpDT.setQtdSairam(saiu);
+        rpDT.setVagasUtilizadas(onibus.getVagasUtilizadas() - saiu + entrou);
+        client.criaRelatorioOnibus(onibus.getId(), rpDT);
     }
 
 }

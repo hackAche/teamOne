@@ -52,4 +52,9 @@ public class Localizacao {
         this.precisao = precisao;
     }
 
+    @Override
+    public String toString() {
+        return "Latitude: " + x + "Longitude: " + y;
+    }
+    
 }
