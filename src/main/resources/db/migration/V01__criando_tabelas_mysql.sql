@@ -34,7 +34,7 @@ CREATE TABLE onibus (
     y FLOAT,
     precisao FLOAT,
     ativo BOOLEAN, 
-    accesibilidade BOOLEAN, 
+    acessibilidade BOOLEAN,
     vagasTotais INT,
     vagasUtilizadas INT,
     rota_id BIGINT(20),
