@@ -31,7 +31,7 @@ public class Onibus {
     
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "parada_atual_id")
-    private Parada paradaAtual;
+    private Parada proximaParada;
 
     public Long getId() {
         return id;
@@ -89,16 +89,16 @@ public class Onibus {
         this.rota = rota;
     }
 
-    public Parada getParadaAtual() {
-        return paradaAtual;
+    public Parada getProximaParada() {
+        return proximaParada;
     }
 
-    public void setParadaAtual(Parada paradaAtual) {
-        this.paradaAtual = paradaAtual;
+    public void setProximaParada(Parada proximaParada) {
+        this.proximaParada = proximaParada;
     }
 
     @Override
     public String toString() {
-        return "Onibus{" + "id=" + id + ", localizacao=" + localizacao + ", acessibilidade=" + acessibilidade + ", ativo=" + ativo + ", vagasTotais=" + vagasTotais + ", vagasUtilizadas=" + vagasUtilizadas + ", rota=" + rota + ", paradaAtual=" + paradaAtual + '}';
+        return "Onibus{" + "id=" + id + ", localizacao=" + localizacao + ", acessibilidade=" + acessibilidade + ", ativo=" + ativo + ", vagasTotais=" + vagasTotais + ", vagasUtilizadas=" + vagasUtilizadas + ", rota=" + rota + ", paradaAtual=" + proximaParada + '}';
     }
 }
