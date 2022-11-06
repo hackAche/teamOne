@@ -39,6 +39,18 @@ public class RelatorioParada {
 
     private Integer qtdEntraram;
 
+    public RelatorioParada() {
+    }
+
+    public RelatorioParada(Parada parada, Onibus onibus, LocalDate dataHorario, Integer vagasUtilizadas, Integer qtdSairam, Integer qtdEntraram) {
+        this.parada = parada;
+        this.onibus = onibus;
+        this.dataHorario = dataHorario;
+        this.vagasUtilizadas = vagasUtilizadas;
+        this.qtdSairam = qtdSairam;
+        this.qtdEntraram = qtdEntraram;
+    }
+
     public Long getId() {
         return id;
     }

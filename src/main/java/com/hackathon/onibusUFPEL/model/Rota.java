@@ -1,12 +1,9 @@
 package com.hackathon.onibusUFPEL.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -22,7 +19,8 @@ public class Rota {
 
     private String nome;
 
-    @OneToMany(mappedBy = "rota")
+    @OneToMany(mappedBy = "rota", fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Parada> paradas;
 
     public Long getId() {
