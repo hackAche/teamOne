@@ -32,14 +32,4 @@ public interface OnibusRepository extends JpaRepository<Onibus, Long> {
     @Query("SELECT o FROM Onibus o WHERE o.rota = :rota")
     List<Onibus> findOnibusByRotaParam(
             @Param("rota") Rota rota);
-
-    /**
-     * Retorna um único elemento da Entity Onibus com base no parâmetro id
-     *
-     * @param id
-     * @return Onibus
-     */
-    @Query("SELECT o FROM Onibus o WHERE o.id = :id")
-    Onibus findOnibusByIdParam(
-            @Param("id") Long id);
 }
