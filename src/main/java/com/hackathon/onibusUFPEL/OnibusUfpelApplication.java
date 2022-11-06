@@ -1,4 +1,4 @@
-package com.hackaton.onibusUFPEL;
+package com.hackathon.onibusUFPEL;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
