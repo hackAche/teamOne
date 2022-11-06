@@ -6,6 +6,7 @@ import com.hackathon.onibusUFPEL.model.Parada;
 import com.hackathon.onibusUFPEL.model.RelatorioParada;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class RelatorioParadaDTO {
 
@@ -14,7 +15,7 @@ public class RelatorioParadaDTO {
     private Long onibusId;
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    private LocalDate dataHorario;
+    private LocalDateTime dataHorario;
 
     private Integer vagasUtilizadas;
 
@@ -45,11 +46,11 @@ public class RelatorioParadaDTO {
         this.onibusId = onibusId;
     }
 
-    public LocalDate getDataHorario() {
+    public LocalDateTime getDataHorario() {
         return dataHorario;
     }
 
-    public void setDataHorario(LocalDate dataHorario) {
+    public void setDataHorario(LocalDateTime dataHorario) {
         this.dataHorario = dataHorario;
     }
 

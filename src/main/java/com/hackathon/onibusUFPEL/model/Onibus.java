@@ -96,4 +96,9 @@ public class Onibus {
     public void setParadaAtual(Parada paradaAtual) {
         this.paradaAtual = paradaAtual;
     }
+
+    @Override
+    public String toString() {
+        return "Onibus{" + "id=" + id + ", localizacao=" + localizacao + ", acessibilidade=" + acessibilidade + ", ativo=" + ativo + ", vagasTotais=" + vagasTotais + ", vagasUtilizadas=" + vagasUtilizadas + ", rota=" + rota + ", paradaAtual=" + paradaAtual + '}';
+    }
 }
