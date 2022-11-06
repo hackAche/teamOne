@@ -20,6 +20,11 @@ public class Localizacao {
 
     private Long precisao;
 
+    public Localizacao(BigDecimal x, BigDecimal y) {
+        this.x = x;
+        this.y = y;
+    }
+
     public BigDecimal getX() {
         return x;
     }
