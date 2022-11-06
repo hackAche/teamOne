@@ -1,0 +1,5 @@
+curl -X POST http://localhost:8080/onibus/1/atualizaLocalizacao -H "Content-Type: application/json" -d '{"x": -31.773356, "y": -52.343319}'
+     
+curl -X GET http://localhost:8080/onibus/1 
+
+curl -X POST http://localhost:8080/onibus/1/toggleAtivo 

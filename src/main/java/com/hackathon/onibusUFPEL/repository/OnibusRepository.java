@@ -13,7 +13,6 @@ import org.springframework.data.repository.query.Param;
  */
 public interface OnibusRepository extends JpaRepository<Onibus, Long> {
 
-
     /**
      * Retorna uma lista, não ordenada, de todos os ônibus ativos
      *
@@ -21,7 +20,6 @@ public interface OnibusRepository extends JpaRepository<Onibus, Long> {
      */
     @Query("SELECT o FROM Onibus o WHERE o.ativo is true")
     List<Onibus> findAllActiveOnibus();
-
 
     /**
      * Retorna uma lista, não ordenada, dos ônibus com base no parâmetro rota

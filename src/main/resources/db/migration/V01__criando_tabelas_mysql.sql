@@ -6,8 +6,8 @@
 CREATE TABLE ponto (
     id BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
-    x FLOAT,
-    y FLOAT,
+    x DOUBLE,
+    y DOUBLE,
     precisao FLOAT
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
