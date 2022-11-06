@@ -112,6 +112,7 @@ public class CommandShell {
                 BigDecimal.valueOf(-31.797449),
                 BigDecimal.valueOf(-52.407675))
         );
+        client.ativarOnibus(onibus.getId());
         return "Finalizado";
     }
 
